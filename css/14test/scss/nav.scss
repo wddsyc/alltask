@@ -1,0 +1,82 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+}
+header {
+    background: #eeeded;
+    opacity: .8;
+    display: flex;
+    justify-content: center;
+    #icon {
+        display: none;
+    }
+    .logo {
+        text-align: center;
+        .xiala {
+            height: 50px;
+            width: 50px;
+            background: rgb(0, 206, 34);
+            display: none;
+        }
+        img {
+            height: 50px;
+        }
+        flex: 1;
+    }
+    
+    ul {
+        text-align: center;
+        list-style: none;
+        flex: 2;
+        display: flex;
+        justify-content: center;
+        li {
+            flex: 1;
+            border-bottom: 0 solid red;
+            margin-right: 10px;
+            transition: .2s;
+            &:hover {
+                border-bottom: 2px solid rebeccapurple;
+            }
+        }
+    }
+    .icons {
+        display: flex;
+        flex: 1;
+        .icon {
+            height: 50px;
+            width: 50px;
+            background: #ccc;
+            margin-left: 15px;
+        }
+    }
+    
+}
+@media only screen and (max-width: 768px) {
+    header {
+        flex-direction: column;     
+        ul {
+            
+            display: none;
+            &.block {
+                display: block;
+            }
+        }
+        .icons {
+            justify-content: space-around;
+            display: none;
+            &.flex {
+                display: flex;
+            }
+        }
+        .logo {
+            display: flex;
+            justify-content: space-around;
+            .xiala {
+                display: block;
+            }
+        }
+    }
+
+}
+    

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tab切换</title>
+    <style>
+        .container {
+            height: 400px;
+            width: 600px;
+            border: 1px solid #9b9b9b;
+            margin: 20px auto;
+            background: #ecececec;
+        }
+
+        .container .header {
+            display: flex;
+            justify-content: flex-start;
+            border-bottom: 2px solid rgb(202, 202, 202);
+            width: 580px;
+            margin: 10px auto;
+        }
+
+        .container .header .tab {
+            z-index: 99;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .container .content {
+            height: 320px;
+            width: 580px;
+            border: 1px solid rgb(155, 155, 155);
+            margin: 10px auto 0;
+        }
+
+        .message {
+            display: none;
+        }
+
+        .active {
+            border: 1px solid rgb(202, 202, 202);
+            border-bottom: 2px solid rgb(255, 255, 255);
+            margin-bottom: -2px;
+            border-radius: 4px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="tab active">tab1</div>
+            <div class="tab">tab2</div>
+            <div class="tab">tab3</div>
+        </div>
+        <div class="content">
+            <div class="message active">tab1</div>
+            <div class="message">tab2</div>
+            <div class="message">tab3</div>
+        </div>
+    </div>
+</body>
+<script>
+
+    let header = document.querySelector(`.header`);
+    let tabs = document.body.querySelectorAll(`.tab`);
+    let messages = document.body.querySelectorAll(`.message`);
+
+    header.addEventListener(`click`, event => {
+        let target = event.target;
+        tabs.forEach(a => a.classList.remove('active'));
+        messages.forEach(a => a.classList.remove('active'));
+        target.classList.add(`active`);
+        render()
+    })
+    function render() {
+        for (let i = 0; i <= tabs.length; i++) {
+            while (tabs[i].matches(`.active`)) {
+                messages[i].classList.add(`active`);
+                break;
+            }
+        }
+    } render()
+</script>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            font-size: .5rem;
+        }
+        table {
+            width: 10rem;
+            margin: auto;
+            border-collapse: collapse;
+            border: 1px #c4c4c4 solid;
+            line-height: 1.5;
+        }
+        table tbody tr:nth-of-type(2n) {
+            background: #ccc;
+        }
+        table tbody tr:nth-of-type(2n+1) {
+            background: rgb(231, 231, 231);
+        }
+        table tbody tr:first-child {
+            background: rgb(0, 172, 0);
+            text-align: left;
+            color: white;
+        }
+    </style>
+    <title>table</title>
+</head>
+
+<body>
+    <table class="t1">
+        <tbody>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Points</th>
+            </tr>
+            <tr>
+                <td>Jill</td>
+                <td>Smith</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Eve</td>
+                <td>Jackson</td>
+                <td>94</td>
+            </tr>
+            <tr>
+                <td>Adam</td>
+                <td>Johnson</td>
+                <td>67</td>
+            </tr>
+            <tr>
+                <td>Bo</td>
+                <td>Nilsson</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Mike</td>
+                <td>Ross</td>
+                <td>35</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        (function () {
+            var html = document.documentElement;
+            function onWindowResize() {
+                html.style.fontSize = html.getBoundingClientRect().width / 20 + 'px';
+            }
+            window.addEventListener('resize', onWindowResize);
+            onWindowResize();
+        })();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+body {
+  box-sizing: border-box;
+  margin: 0; }
+
+header {
+  background: #eeeded;
+  opacity: .8;
+  display: flex;
+  justify-content: center; }
+  header #icon {
+    display: none; }
+  header .logo {
+    text-align: center;
+    flex: 1; }
+    header .logo .xiala {
+      height: 50px;
+      width: 50px;
+      background: #00ce22;
+      display: none; }
+    header .logo img {
+      height: 50px; }
+  header ul {
+    text-align: center;
+    list-style: none;
+    flex: 2;
+    display: flex;
+    justify-content: center; }
+    header ul li {
+      flex: 1;
+      border-bottom: 0 solid red;
+      margin-right: 10px;
+      transition: .2s; }
+      header ul li:hover {
+        border-bottom: 2px solid rebeccapurple; }
+  header .icons {
+    display: flex;
+    flex: 1; }
+    header .icons .icon {
+      height: 50px;
+      width: 50px;
+      background: #ccc;
+      margin-left: 15px; }
+
+@media only screen and (max-width: 768px) {
+  header {
+    flex-direction: column; }
+    header ul {
+      display: none; }
+      header ul.block {
+        display: block; }
+    header .icons {
+      justify-content: space-around;
+      display: none; }
+      header .icons.flex {
+        display: flex; }
+    header .logo {
+      display: flex;
+      justify-content: space-around; }
+      header .logo .xiala {
+        display: block; } }

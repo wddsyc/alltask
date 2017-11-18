@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的项目</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            background: rgb(255, 242, 227)
+        }
+
+        #container {
+            max-width: 800px;
+            margin: auto;
+            color: rgb(132, 148, 146);
+            margin-top: 14px;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+        }
+
+        header {
+            font-size: 23px;
+        }
+
+        .intr {
+            font-weight: 100;
+            font-size: 14px;
+            margin: 35px;
+            margin-top: -5px;
+        }
+
+        .prolist {
+            display: flex;
+        }
+
+        .list {
+            
+            margin: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            line-height: 2;
+            color: rgb(255, 255, 255);
+        }
+
+        .view {
+            margin: 43px;
+        }
+
+        footer {
+            display: flex;
+            margin-top: -21px;
+        }
+
+        .footer {
+            margin: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            color: white;
+            line-height: 2;
+        }
+
+        .list,
+        .footer {
+            background: rgb(127, 216, 127);
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .list:hover,
+        .footer:hover {
+            opacity: 0.8;
+        }
+
+        .intrme {
+            margin: 24px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <h1>我的项目</h1>
+        </header>
+        <div class="intr">一句话介绍</div>
+        <div class="prolist">
+            <div class="list l1">项目一</div>
+            <div class="list l2">项目二</div>
+            <div class="list l3">项目三</div>
+            <div class="list l4">项目四</div>
+            <div class="list l5">项目五</div>
+        </div>
+        <div class="view">
+            <img src="http://7xpvnv.com2.z0.glb.qiniucdn.com/65d4aba2-a097-4b24-aaa0-ebbaf7eedab2" alt="">
+        </div>
+        <footer>
+            <div class="footer dital">查看源码</div>
+            <div class="footer use">使用说明</div>
+        </footer>
+        <div class="intrme">作者:我</div>
+    </div>
+</body>
+
+</html>

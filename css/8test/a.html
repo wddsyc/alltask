@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>a按钮样式</title>
+    <style>
+        .li {
+            font-size: .5rem;
+            text-decoration: none;
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+
+        }
+
+        .one {
+            background: #009688;
+        }
+
+        .two {
+            background: #ffeb3b;
+        }
+
+        .three {
+            background: #ff9800;
+        }
+
+        .four {
+            background: #f44336;
+        }
+
+        .five {
+            background: #4CAF50;
+        }
+
+        .li:hover {
+            box-shadow: 6px 10px 10px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.2s;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#" class="li one">wddsyc</a>
+    <a href="#" class="li two">wddsyc</a>
+    <a href="#" class="li three">wddsyc</a>
+    <a href="#" class="li four">wddsyc</a>
+    <a href="#" class="li five">wddsyc</a>
+    <script>
+        (function () {
+            var html = document.documentElement;
+
+            function onWindowResize() {
+                html.style.fontSize = html.getBoundingClientRect().width / 20 + 'px';
+                console.log(html.style.fontSize)
+            }
+
+            window.addEventListener('resize', onWindowResize);
+            onWindowResize();
+
+        })();
+
+    </script>
+</body>
+
+</html>
