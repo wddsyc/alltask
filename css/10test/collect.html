@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>信息收集表</title>
+    <style>
+        .layout {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            padding-bottom: 16px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        h2 {
+            padding: 15px 16px;
+            background-color: rgb(0, 150, 136);
+            color: rgb(255, 255, 255);
+        }
+
+        form {
+            margin: 16px;
+        }
+
+        .item {
+            margin-top: 16px;
+        }
+
+        label {
+            color: rgb(177, 177, 177);
+            vertical-align: middle;
+        }
+
+        input[type="text"] {
+            /*设为块状元素，去掉原有的border，再加上期望的样式*/
+            padding: 8px 0;
+            display: block;
+            border: none;
+            border-bottom: 1px solid rgb(128, 128, 128);
+            width: 100%;
+        }
+
+        textarea {
+            padding: 8px 0;
+            display: block;
+            border: none;
+            border-bottom: 1px solid rgb(128, 128, 128);
+            width: 100%;
+        }
+
+        .half {
+            float: left;
+            width: 49%;
+        }
+
+        .i4 {
+            overflow: hidden;
+        }
+
+        .i5 input {
+            padding: 8px 16px;
+            color: rgb(255, 255, 255);
+            background-color: rgb(0, 150, 136);
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout">
+        <div class="container">
+            <h2>信息收集表</h2>
+            <form action method="post">
+                <div class="item i1">
+                    <label for="name">姓名</label>
+                    <input name="name" id="name" type="text">
+                </div>
+                <div class="item i2">
+                    <label for="qq">QQ</label>
+                    <input name="qq" id="qq" type="text">
+                </div>
+                <div class="item i3">
+                    <label for="words">要说的话</label>
+                    <textarea name="words" id="words" cols="30" rows="4"></textarea>
+                </div>
+                <div class="item i4">
+                    <div class="half">
+                        <input id="milk" name="drinks" type="checkbox" checked="checked">
+                        <label for="milk">Milk</label>
+                        <br>
+                        <input id="sugar" name="drinks" type="checkbox">
+                        <label for="sugar">Sugar</label>
+                        <br>
+                        <input id="lemon" name="drinks" type="checkbox">
+                        <label for="lemon">Lemon</label>
+                    </div>
+                    <div class="half">
+                        <input id="male" type="radio" name="gender" value="male" checked="">
+                        <label for="male">Male</label>
+                        <br>
+                        <input id="female" type="radio" name="gender" value="female">
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+                <div class="item i5">
+                    <input type="submit" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
