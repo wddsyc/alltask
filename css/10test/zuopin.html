@@ -23,27 +23,37 @@
             display: inline-block;
             line-height: 2.5;
             cursor: pointer;
-            padding: 0 20px;
+            /* padding: 0 20px; */
         }
-        li:hover {
+        header>ul>li>a:hover {
             background: rgb(184, 184, 184);
         }
         header>ul>li {
             position: relative;
         }
+        header>ul>li>a {
+            display: block;
+            text-decoration: none;
+            color: black;
+            width: 32px;
+            padding: 0 16px;
+            text-align: center;
+        }
         header>ul>li>ul{
             display: none;
             width: 160px;
-            background: whitesmoke;
+            background: white;
             position: absolute;
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
             top: 100%;
             left: 0;
         }
         header>ul>li>ul>li {
-            
             display: block;
-            
+            padding-left: 16px;
+        }
+        header>ul>li>ul>li:hover {
+            background: rgb(184, 184, 184);
         }
         header>ul>li:last-child:hover ul{
             display: block;
@@ -53,11 +63,11 @@
 <body>
     <header>
         <ul>
-            <li>首页</li>
-            <li>作品</li>
-            <li>更多
+            <li><a href="#">首页</a> </li>
+            <li><a href="#">作品</a> </li>
+            <li><a href="#">更多</a> 
                 <ul>
-                    <li>git</li>
+                    <li>GitHub</li>
                     <li>博客</li>
                     <li>知乎</li>
                 </ul>
