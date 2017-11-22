@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>双栏布局</title>
+    <style>
+        #container {
+            display: flex;
+            width: 100%;
+        }
+        nav {
+            width: 300px;
+            height: 600px;
+            background: #d8ab91;
+            margin-right: 10px;
+        }
+        .main {
+            height: 100vh;
+            flex: 1;
+            background: #a8aba1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <nav>
+            导航
+            <ul style="list-style: none;">
+                    <li><a href="单栏布局.html">单栏布局</a></li>
+                    <li><a href="双栏布局.html">双栏布局</a></li>
+                    <li><a href="三栏布局.html">三栏布局</a></li>
+                    <li><a href="圣杯布局.html">圣杯布局</a></li>
+                    <li><a href="简书.html">简书</a></li>
+                    <li><a href="风景列表.html">风景列表</a></li>
+                </ul>
+        </nav>
+        <div class="main">内容</div>
+    </div>
+</body>
+
+</html>

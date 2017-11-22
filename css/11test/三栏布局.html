@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>三栏布局</title>
+    <style>
+        #container {
+            width: 960px;
+            margin: 0 auto;
+        }
+
+        #container::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        nav,
+        .main,
+        aside {
+            float: left;
+        }
+
+        nav {
+            width: 200px;
+            height: 300px;
+            background: #a4f2b2;
+        }
+
+        .main {
+            width: 550px;
+            height: 500px;
+            background: #b3f1a6;
+        }
+
+        aside {
+            width: 150px;
+            height: 300px;
+            background-color: #7af37a;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <nav>导航
+                <ul style="list-style: none;">
+                        <li><a href="单栏布局.html">单栏布局</a></li>
+                        <li><a href="双栏布局.html">双栏布局</a></li>
+                        <li><a href="三栏布局.html">三栏布局</a></li>
+                        <li><a href="圣杯布局.html">圣杯布局</a></li>
+                        <li><a href="简书.html">简书</a></li>
+                        <li><a href="风景列表.html">风景列表</a></li>
+                    </ul>
+        </nav>
+        <div class="main">内容</div>
+        <aside>侧边栏</aside>
+    </div>
+</body>
+
+</html>
