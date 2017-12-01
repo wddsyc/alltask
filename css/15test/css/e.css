@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration-line: none; }
+
+header {
+  position: relative;
+  background: url("http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/header-bg.jpg");
+  height: 760px;
+  padding-top: 30px;
+  background-position: center; }
+  header .navbar, header .start {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40px; }
+  header .start {
+    float: left; }
+    header .start a {
+      color: #fed136;
+      font-size: 30px; }
+  header .navbar {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); }
+    header .navbar ul {
+      list-style: none; }
+      header .navbar ul li {
+        display: inline-block;
+        margin: 0 20px; }
+        header .navbar ul li a {
+          color: white; }
+  header .welcome {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center; }
+    header .welcome h2 {
+      font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-style: italic;
+      font-size: 40px;
+      line-height: 40px;
+      margin-bottom: 25px; }
+    header .welcome h1 {
+      font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 75px;
+      line-height: 75px;
+      margin-bottom: 50px; }
+    header .welcome a {
+      color: white;
+      background-color: #fed136;
+      border-color: #fed136;
+      font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      text-transform: uppercase;
+      font-weight: 700;
+      border-radius: 3px;
+      font-size: 18px;
+      padding: 20px 40px; }
