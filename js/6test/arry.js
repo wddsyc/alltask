@@ -1,13 +1,21 @@
-// function squareArr(arr){
-//    return arr.map(a=>(a*a))
+// function filterPositive(arr) {
+//     return arr.filter(n => {
+//         if (typeof n == `number`) {
+//             return n > 0
+//         }
+//     })
 // }
-// var arr = [2, 4, 6]
+// var arr = [3, -1, 2, '饥人谷', true]
+// var newArr = filterPositive(arr)
+// console.log(newArr) //[3, 2]
+// console.log(arr)
 
-// console.log(squareArr(arr))
-
-function filterPositive(arr) {
-    var ab = arr.map(a => { if (typeof (a) == "number") { return Math.abs(a) } ;if (typeof (a) !== "number") { return a } });
-    return ab
-}
-console.log(filterPositive([3, -1, 2, '饥人谷', true]))
-
+function squareArr(arr){
+    for(let i=0;i<arr.length;i++){
+        arr[i]*=arr[i]
+    }
+        return arr
+    }
+    var arr = [2, 4, 6]
+    squareArr(arr)
+    console.log(arr)

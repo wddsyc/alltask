@@ -10,3 +10,4 @@ function getChIntv(str) {
 }
 var str = getChIntv("2017-02-08");
 console.log(str);
+\d{4}

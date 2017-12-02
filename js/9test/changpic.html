@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>看图片</title>
+    <style>
+        .bk {
+            height: 400px;
+            width: 400px;
+            display: none;
+        }
+
+        .img-preview,
+        .img-preview2 {
+            float: left;
+        }
+
+        .gone {
+            display: none;
+        }
+
+        .appear {
+            display: block
+        }
+
+        .p1 {
+            background: skyblue;
+        }
+
+        .p2 {
+            background: #000;
+        }
+
+        .p3 {
+            background: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="ct">
+        <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg">鼠标放置查看图片1</li>
+        <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg">鼠标放置查看图片2</li>
+        <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg">鼠标放置查看图片3</li>
+    </ul>
+    <div class="img-preview">
+        <div class="bk p1"></div>
+        <div class="bk p2"></div>
+        <div class="bk p3"></div>
+    </div>
+    <div class="img-preview2">
+
+    </div>
+    <script>
+        let img2 = document.querySelector(`.img-preview2`)
+        let img = document.querySelector(`.img-preview`)
+        
+        document.querySelector(`.ct`).addEventListener(`mouseover`, function (e) {
+            let target = e.target
+            let index = [].slice.call(document.querySelector(`.ct`).children).findIndex(li => li === target)
+            let dataImg = target.getAttribute(`data-img`)
+
+            for (let i = 0; i < img.children.length; i++) {
+                img.children[i].classList.remove(`appear`)
+            }
+
+            img.children[index].classList.add(`appear`)
+            img2.innerHTML = `<img src="${dataImg}">`
+        })
+    </script>
+</body>
+
+</html>
