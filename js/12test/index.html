@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>加载更多</title>
+    <style>
+        ul,
+        li {
+            list-style: none;
+        }
+
+        ul {
+
+            line-height: 2;
+        }
+
+        li {
+            border: 1px solid rgb(255, 110, 97);
+            border-top: none;
+            text-align: center;
+        }
+
+        li:first-child {
+            border: 1px solid rgb(255, 110, 97);
+        }
+
+        button {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -50%)
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <form action="/from.html" method="get">
+        <input type="text" name="username" id="">
+        <input type="password" name="password" id="">
+        <input type="submit" value="提交">
+    </form> -->
+    <ul id=list>
+        <li>name:pwj id:17126</li>
+    </ul>
+    <button id=btn>加载更多</button>
+    <script>
+        var msgindex = 0
+        var reqesting = false
+        btn.addEventListener(`click`, () => {
+            console.log(`hhh`)
+            if (reqesting) {
+                console.log(`退出`)
+                return
+            }
+            reqesting = true
+            let xhr = new XMLHttpRequest()
+            xhr.open('GET', `./newctt.json`)
+            xhr.onreadystatechange = function () {
+                console.log(xhr.readyState, xhr.status)
+                if (xhr.readyState == 4 && xhr.status === 200) {
+                    reqesting = false
+                    let msg = JSON.parse(xhr.response).data[msgindex]
+                    console.log(msg)
+                    let html = `<li>name:${msg.name}id:${msg.id}</li>`
+                    list.innerHTML += html
+                    msgindex++
+                    if (msgindex === 2) {
+                        msgindex = 0
+                    }
+                }
+            }
+            xhr.send()
+        })
+    </script>
+
+</body>
+
+</html>

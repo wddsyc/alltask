@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>加载更多</title>
+    <style>
+        ul,
+        li {
+            list-style: none;
+        }
+
+        ul {
+            border: 1px solid rgb(255, 110, 97);
+            line-height: 2;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <form action="/from.html" method="get">
+        <input type="text" name="username" id="">
+        <input type="password" name="password" id="">
+        <input type="submit" value="提交">
+    </form> -->
+
+    <!-- <ul>
+        <li>name:pwj id:17126</li>
+    </ul>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/core.js"></script>
+    <script>
+        let xhr = new XMLHttpRequest()
+        xhr.open(`GET`,`newctt.json`,true)
+        shr.send()
+        xhr.addEventListener()
+    </script> -->
+    <script>
+        var xhr = new XMLHttpRequest()
+        xhr.open('GET', `/newctt.json`, true)//配置
+        xhr.send()//发送请求
+        
+        // xhr.open('GET',`/login?username=wddsyc&password=123456`,true)
+        // xhr.send()
+        // 上面的用post来做
+        // xhr.open('POST',`/login`,true)
+        // xhr.send('username=wddsyc&password=123456')
+
+        // xhr.onload = function(){
+        // }=>下面的
+        xhr.addEventListener(`load`, function () {  //触发此事件表示xhr对象的状态是4了
+            console.log(xhr.status)
+            if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) { //成功时返回的服务器状态范围
+                var data = xhr.responseText
+                console.log(data)
+            } else {
+                console.log(`error`)
+            }
+        })
+
+        // xhr.onerror=function(){}=>下面的
+        xhr.addEventListener(`error`, function () {
+            console.log(`数据发送失败`)
+        })
+
+        xhr.ontimeout = function () {
+            //百度下（大概是在前面设置时间在这里触发时间到了返回的事件）
+        }
+        console.log(xhr.readyState)
+        xhr.addEventListener(`readystatechange`, () => {
+            console.log(`readyState` + xhr.readyState) //xhr对象的准备状态
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(xhr.responseText)
+            }
+        })
+    </script>
+</body>
+
+</html>
