@@ -1,0 +1,74 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration-line: none;
+  color: black; }
+
+.mode-tab {
+  width: 50vw;
+  margin: 20px auto; }
+  .mode-tab .tab-header ul {
+    display: flex;
+    padding: 10px 0; }
+    .mode-tab .tab-header ul li {
+      cursor: pointer;
+      padding: 0 20px;
+      border-left: 1px solid rgba(0, 0, 0, 0.2); }
+      .mode-tab .tab-header ul li:first-child {
+        border: none; }
+      .mode-tab .tab-header ul li.click {
+        background: rgba(0, 0, 0, 0.1);
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        box-shadow: 0px -8px 0px 0px rgba(0, 0, 0, 0.1), 0px 10px 0px 0px rgba(0, 0, 0, 0.1); }
+  .mode-tab .goods ul {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap;
+    justify-content: space-between;
+    display: none; }
+    .mode-tab .goods ul.click {
+      display: flex; }
+    .mode-tab .goods ul li {
+      position: relative;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      width: 30%;
+      padding: 0 5px 10px 5px; }
+      .mode-tab .goods ul li:nth-child(3) ~ li {
+        margin-top: 10px; }
+      .mode-tab .goods ul li img {
+        display: block;
+        margin: 0 auto; }
+      .mode-tab .goods ul li h4 {
+        font-weight: 200; }
+      .mode-tab .goods ul li p {
+        color: #ff3c3c; }
+      .mode-tab .goods ul li a {
+        z-index: 2;
+        opacity: 0;
+        transition: all 0.3s;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #ff3c3c;
+        border: 1px solid;
+        background: white;
+        padding: 0 5px;
+        line-height: 2; }
+      .mode-tab .goods ul li .shadow {
+        transition: all 0.3s;
+        opacity: 0;
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.2); }
+      .mode-tab .goods ul li:hover a,
+      .mode-tab .goods ul li:hover .shadow {
+        opacity: 1; }

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>买东西了诶</title>
+    <style>
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            background: rgb(199, 23, 30);
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        div>ul {
+            width: 200px;
+            line-height: 2;
+        }
+        .hover ul{
+            display: flex;
+        }
+        div>ul>li {
+            position: relative;
+            border-bottom: 1px solid rgba(245, 107, 65, .5);
+            cursor: pointer;
+        }
+
+        div>ul>li:last-child {
+            border-bottom: none;
+        }
+
+        div>ul>li>span {
+            color: white;
+            float: right;
+            margin-right: 10px;
+        }
+
+        div>ul>li>a {
+            margin-left: 10px;
+        }
+
+        div>ul>li>ul {
+            width: 300px;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            flex-wrap: wrap;
+            border: 1px solid #ccc;
+            display: none;
+        }
+        
+        div>ul>li>ul>li {
+            background: whitesmoke;
+            flex: 49%;
+            text-align: center;
+        }
+
+        div>ul>li>ul>li>a{
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>
+                <a href="#">珠宝玉器</a>
+                <span>></span>
+                <ul class="hide">
+                    <li>
+                        <a href="#">煎饼</a>
+                    </li>
+                    <li>
+                        <a href="#">麻花</a>
+                    </li>
+                    <li>
+                        <a href="#">口水鸡</a>
+                    </li>
+                    <li>
+                        <a href="#">黄瓜</a>
+                    </li>
+                    <li>
+                        <a href="#">拌面</a>
+                    </li>
+                    <li>
+                        <a href="#">熟牛肉</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">珠宝玉器</a>
+                <span>></span>
+                <ul class="hide">
+                    <li>
+                        <a href="#">煎饼</a>
+                    </li>
+                    <li>
+                        <a href="#">麻花</a>
+                    </li>
+                    <li>
+                        <a href="#">口水鸡</a>
+                    </li>
+                    <li>
+                        <a href="#">黄瓜</a>
+                    </li>
+                    <li>
+                        <a href="#">拌面</a>
+                    </li>
+                    <li>
+                        <a href="#">熟牛肉</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">珠宝玉器</a>
+                <span>></span>
+                <ul class="hide">
+                    <li>
+                        <a href="#">煎饼</a>
+                    </li>
+                    <li>
+                        <a href="#">麻花</a>
+                    </li>
+                    <li>
+                        <a href="#">口水鸡</a>
+                    </li>
+                    <li>
+                        <a href="#">黄瓜</a>
+                    </li>
+                    <li>
+                        <a href="#">拌面</a>
+                    </li>
+                    <li>
+                        <a href="#">熟牛肉</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">珠宝玉器</a>
+                <span>></span>
+                <ul class="hide">
+                    <li>
+                        <a href="#">煎饼</a>
+                    </li>
+                    <li>
+                        <a href="#">麻花</a>
+                    </li>
+                    <li>
+                        <a href="#">口水鸡</a>
+                    </li>
+                    <li>
+                        <a href="#">黄瓜</a>
+                    </li>
+                    <li>
+                        <a href="#">拌面</a>
+                    </li>
+                    <li>
+                        <a href="#">熟牛肉</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">珠宝玉器</a>
+                <span>></span>
+                <ul class="hide">
+                    <li>
+                        <a href="#">煎饼</a>
+                    </li>
+                    <li>
+                        <a href="#">麻花</a>
+                    </li>
+                    <li>
+                        <a href="#">口水鸡</a>
+                    </li>
+                    <li>
+                        <a href="#">黄瓜</a>
+                    </li>
+                    <li>
+                        <a href="#">拌面</a>
+                    </li>
+                    <li>
+                        <a href="#">熟牛肉</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script src="jq.js"></script>
+    <script>
+        $(`div>ul>li`).on('mouseenter',function(){
+            $(this).addClass(`hover`)
+        })
+        $(`div>ul>li`).on(`mouseleave`,function(){
+            $(this).removeClass(`hover`)
+        })
+    </script>
+</body>
+
+</html>

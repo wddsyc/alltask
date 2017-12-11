@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/jewelry.css">
+    <title>0..0</title>
+    <style>
+        button {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            color: red;
+            padding: 5px 10px;
+            background: white;
+            border: 1px solid;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mode-tab">
+        <h1>珠宝首饰</h1>
+        <div class="goods">
+            <ul class="goods-list click">
+
+                <li class="goods-item">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    <h4 class="intro">藏金镶玉路路通吊坠</h4>
+                    <p class="price">998$</p>
+                    <a href="">立即抢购</a>
+                    <div class="shadow"></div>
+                </li>
+                <li class="goods-item">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    <h4 class="intro">藏金镶玉路路通吊坠</h4>
+                    <p class="price">998$</p>
+                    <a href="">立即抢购</a>
+                    <div class="shadow"></div>
+                </li>
+                <li class="goods-item">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    <h4 class="intro">藏金镶玉路路通吊坠</h4>
+                    <p class="price">998$</p>
+                    <a href="">立即抢购</a>
+                    <div class="shadow"></div>
+                </li>
+                <li class="goods-item">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    <h4 class="intro">藏金镶玉路路通吊坠</h4>
+                    <p class="price">998$</p>
+                    <a href="">立即抢购</a>
+                    <div class="shadow"></div>
+                </li>
+                <li class="goods-item">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    <h4 class="intro">藏金镶玉路路通吊坠</h4>
+                    <p class="price">998$</p>
+                    <a href="">立即抢购</a>
+                    <div class="shadow"></div>
+                </li>
+                <li class="goods-item">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    <h4 class="intro">藏金镶玉路路通吊坠</h4>
+                    <p class="price">998$</p>
+                    <a href="">立即抢购</a>
+                    <div class="shadow"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <button id="addgoods">添加</button>
+    <script src="jq.js"></script>
+    <script>
+        var products = [{
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金手 猴哥款',
+            price: '￥405.00'
+        }, {
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金转运珠 猴哥款',
+            price: '￥100.00'
+        }, {
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金手链 3D猴哥款',
+            price: '￥45.00'
+        }];
+        $(`#addgoods`).on(`click`, function () {
+            let goodinfo = products.map(product => {
+                return `<li class="goods-item">
+            <img src=${product.img} alt="">
+            <h4 class="intro">${product.name}</h4>
+            <p class="price">${product.price}</p>
+            <a href="">立即抢购</a>
+            <div class="shadow"></div>
+        </li>`
+            }).join(``)
+            $(`ul`).append(goodinfo)
+        })
+    </script>
+</body>
+
+</html>
