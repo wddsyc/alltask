@@ -5,121 +5,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <script src="jq.js"></script>
+    <title>渐变轮播</title>
     <style>
-        .wrap {
-            position: relative;
-            width: 320px;
-            height: 180px;
-            overflow: hidden;
-            margin: 0 auto;
-        }
-
-        ul {
+        * {
+            list-style: none;
             margin: 0;
             padding: 0;
-            list-style: none;
-            display: flex;
-            transform: translate(-320px);
-            transition: .5s;
+            box-sizing: border-box;
         }
-        .pic {
-            height: 180px;
-            width: 320px;
+
+        #wrap {
+            position: relative;
+            height: 700px;
+            width: 1000px;
+            margin: 30px auto;
+            overflow: hidden;
         }
-        .pic1 {
+
+        .clr-items {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .item {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: none;
+        }
+
+        .clr1 {
             background: skyblue;
         }
 
-        .pic2 {
+        .clr2 {
             background: sandybrown;
         }
 
-        .pic3 {
-            background: deeppink;
+        .clr3 {
+            background: khaki;
         }
 
-        .pic4 {
-            background: blueviolet;
+        .clr4 {
+            background: palegreen;
         }
-        .fa {
-            cursor: pointer;
+
+        .bullet {
+            z-index: 3;
             position: absolute;
-            font-size: 30px;
-            color: whitesmoke;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
         }
 
-        .fa-arrow-left {
-            top: 50%;
-            transform: translate(50%, -50%);
+        .bullet>li {
+            height: 20px;
+            width: 50px;
+            margin: 20px;
+            border-radius: 6px;
+            border: 2px solid whitesmoke;
+            cursor: pointer;
+        }
+        .active {
+            background: whitesmoke;
+        }
+        .arrows {
+            z-index: 2;
+            position: relative;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .fa-arrow-right {
-            top: 50%;
-            right: 0;
-            transform: translate(-50%, -50%)
+        span {
+            color: white;
+            font-size: 80px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        span:hover {
+            border: 2px solid white;
         }
     </style>
-    <title>图片轮播</title>
 </head>
 
 <body>
-    <div class="wrap">
-        <ul class="items">
-            <li data-id="1">
-                <div class="pic pic1"></div>
-            </li>
-            <li data-id="2">
-                <div class="pic pic2"></div>
-            </li>
-            <li data-id="3">
-                <div class="pic pic3"></div>
-            </li>
-            <li data-id="4">
-                <div class="pic pic4"></div>
-            </li>
+    <div id="wrap">
+        <ul class="clr-items">
+            <li class="item clr1">1</li>
+            <li class="item clr2">2</li>
+            <li class="item clr3">3</li>
+            <li class="item clr4">4</li>
         </ul>
-        <i class="fa fa-arrow-left" aria-hidden="true"></i>
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        <div class="arrows">
+            <span>
+                <</span>
+                    <span>></span>
+        </div>
+        <ul class="bullet">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
     </div>
     <script>
-        let $ul = document.querySelector(`.items`)
-        let $lis = document.querySelectorAll(`.items>li`)
-        let $left = document.querySelector(`.fa-arrow-left`)
-        let $right = document.querySelector(`.fa-arrow-right`)
-
-        let pageIndex = 1
-        let isAnimate = false
-
-        let lisCount = $lis.length
-        console.log(lisCount)
-        let imgWidth = $ul.firstElementChild.offsetWidth
-
-        $ul.appendChild($ul.firstElementChild.cloneNode(true))
-        $ul.prepend($ul.querySelector(`li:nth-child(${lisCount})`).cloneNode(true))
-
-        $left.addEventListener(`click`,()=>{
-            playPre()
+        let [$wrap, $items, $item, $arrows, $bullet, moveCount, isAnimate,cycleId] = [$(`#wrap`), $(`.clr-items`), $(`.item`), $(
+            `.arrows`), $(`.bullet`), 0, false,null]
+        
+        $arrows.on(`click`, `span`, function () {
+            $(this).index() === 0 ? playPrev() : playNext()
         })
-        $right.addEventListener(`click`,()=>{
-            playNext()
+        $bullet.on(`click`, `li`, function () {
+            let idx = $(this).index()
+            console.log(`点了`+idx)
+            play(idx)
+            
         })
+        play(0)
+        autoPlay()
+        
         function playNext() {
-            pageIndex += 1
-            console.log($ul.style.transform += `translateX(-${imgWidth}px)` )
-            if(lisCount === pageIndex-1) {
-                pageIndex = 1
-                $ul.style.transform = `translateX(-${imgWidth}px)`
-            }
+            play((moveCount+1)%$item.size())
         }
-        function playPre() {
-            pageIndex -= 1
-            $ul.style.transform += `translateX(${imgWidth}px)`
-            if(pageIndex < 1 ){
-                pageIndex = lisCount
-                $ul.style.transform = `translateX(${lisCount * imgWidth}px)`
-            }
+
+        function playPrev() {
+            play(($item.size()+moveCount-1)%$item.size())
         }
+
+        function play(index) {
+            if (isAnimate) return
+            isAnimate = true
+            $item.eq(moveCount).fadeOut(500)
+            $item.eq(index).fadeIn(500, function () {
+                isAnimate = false
+                console.log(`asdad`)
+            })
+            moveCount = index
+            setBullet()
+        }
+        function setBullet() {
+            $bullet.children().removeClass(`active`).eq(moveCount).addClass(`active`)
+        }
+        function autoPlay() {
+            cycleId = setInterval(playNext,2000)
+        }
+        
     </script>
 </body>
 

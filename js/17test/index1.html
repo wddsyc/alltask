@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+    <title>图片轮播</title>
+    <style>
+        .wrap {
+            position: relative;
+            height: 300px;
+            width: 500px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .items {
+            width: 600%;
+            height: 100%;
+            display: flex;
+        }
+
+        .item {
+            width: 100%;
+        }
+
+        .pic1 {
+            background: skyblue;
+        }
+
+        .pic2 {
+            background: sandybrown;
+        }
+
+        .pic3 {
+            background: deeppink;
+        }
+
+        .pic4 {
+            background: blueviolet;
+        }
+
+        .fa {
+            cursor: pointer;
+            position: absolute;
+            font-size: 30px;
+            color: whitesmoke;
+        }
+
+        .fa-arrow-left {
+            top: 50%;
+            transform: translate(50%, -50%);
+        }
+
+        .fa-arrow-right {
+            top: 50%;
+            right: 0;
+            transform: translate(-50%, -50%)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="items">
+            <div class="item pic4"></div>
+            <div class="item pic1"></div>
+            <div class="item pic2"></div>
+            <div class="item pic3"></div>
+            <div class="item pic4"></div>
+            <div class="item pic1"></div>
+        </div>
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+    </div>
+    <script>
+        // (function () {
+
+        let wrap = document.querySelector(`.wrap`)
+        let left = document.querySelector(`.fa-arrow-left`)
+        let right = document.querySelector(`.fa-arrow-right`)
+        let items = document.querySelector(`.items`)
+        let move = 500
+        let index = 0
+
+        items.style.transform = `translate(-500px)`
+        right.addEventListener(`click`, rightRemove)
+        left.addEventListener(`click`, leftRemove)
+
+
+
+
+        function leftRemove() {
+            left.removeEventListener(`click`, leftRemove)
+            items.style.transition = `.5s`
+            items.style.transform += `translate(500px)`                             //只能加样式，用-=会得到NAN
+            setTimeout(function () {
+                left.addEventListener(`click`, leftRemove)
+                index -= 1
+                if (index < 0) {                                                     //?
+                    items.style.transition = `0s`
+                    items.style.transform = `translate(-${move * 4}px)`
+                    index = 3
+                }
+            }, 500);
+        }
+        function rightRemove() {
+            right.removeEventListener(`click`, rightRemove)
+            items.style.transition = `.5s`
+            items.style.transform += `translate(-500px)`
+            setTimeout(function () {
+                right.addEventListener(`click`, rightRemove)
+                index += 1
+                if (index === 4) {                                                 //?为什么不能用大于3
+                    items.style.transition = `0s`
+                    items.style.transform = `translate(-${move}px)`
+                    index = 0
+                }
+            }, 500)
+        }
+        function autoLeft() {
+            let set = setTimeout(function () {
+                items.style.transition = `.8s`
+                items.style.transform += `translate(-${move}px)`
+                setTimeout(function () {
+                    index += 1
+                    if (index === 4) {
+                        items.style.transition = `0s`
+                        items.style.transform = `translate(-${move}px)`
+                        index = 0
+                    }
+                    autoLeft()
+                }, 1600)
+            }, 800)
+            wrap.addEventListener(`mouseover`, () => {
+                console.log(`qingchu`)
+                autoLeft = function () { }
+            })
+        } autoLeft()
+
+        wrap.addEventListener(`mouseleave`, function () {
+            autoLeft = function () {
+                let set = setTimeout(function () {
+                    items.style.transition = `.8s`
+                    items.style.transform += `translate(-${move}px)`
+                    setTimeout(function () {
+                        index += 1
+                        if (index === 4) {
+                            items.style.transition = `0s`
+                            items.style.transform = `translate(-${move}px)`
+                            index = 0
+                        }
+                        autoLeft()
+                    }, 1600)
+                }, 800)
+                wrap.addEventListener(`click`, () => {
+                    console.log(`qingchu`)
+                    autoLeft = function () { }
+                })
+            }
+            autoLeft()
+        })
+            // function autowrap() {
+            //     let auto = setInterval(autoLeft, 1500)
+            //     wrap.addEventListener(`mouseover`, function () {
+            //         clearInterval(auto)
+            //     })
+            //     wrap.addEventListener(`mouseleave`, function () {
+            //         setInterval(autoLeft, 1500)
+            //         autowrap()
+            //     })
+
+            // } autowrap()
+        // })()
+    </script>
+</body>
+
+</html>
