@@ -1,0 +1,161 @@
+@keyframes toset {
+  30% {
+    transform: translateZ(-100px); }
+  70% {
+    transform: translateZ(-100px) rotateY(180deg); }
+  100% {
+    transform: translateZ(0) rotateY(180deg); } }
+
+@keyframes tonotes {
+  0% {
+    transform: translateZ(0) rotateY(180deg); }
+  30% {
+    transform: translateZ(-100px) rotateY(180deg); }
+  70% {
+    transform: translateZ(-100px) rotateY(0); }
+  100% {
+    transform: translateZ(0) rotateY(0); } }
+
+@keyframes totb {
+  0% {
+    transform: translateY(0); }
+  50% {
+    transform: translateY(-5px); }
+  100% {
+    transform: translateY(0); } }
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  text-decoration-line: none;
+  box-sizing: border-box;
+  font-size: 20px;
+  list-style: none; }
+
+html,
+body {
+  height: 100%; }
+
+#app .view .header {
+  height: 40px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: skyblue;
+  font-size: 24px; }
+  #app .view .header i {
+    margin: 0 10px; }
+
+#app .notes-view, #app .setting-view {
+  background: white;
+  top: 0;
+  backface-visibility: hidden; }
+
+#app .notes-view .editor-title, #app .notes-view .editor-title .add-note {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+#app {
+  height: 100%;
+  position: relative;
+  perspective: 1000px;
+  overflow-x: hidden; }
+  #app .view {
+    position: absolute;
+    height: 100%;
+    width: 100%; }
+  #app .main-view {
+    height: 100%;
+    transform-style: preserve-3d; }
+    #app .main-view.toset {
+      animation-name: toset;
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
+      box-shadow: 0 0 50px #ccc; }
+    #app .main-view.tonotes {
+      animation-name: tonotes;
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
+      box-shadow: 0 0 50px #ccc; }
+  #app .notes-view .notes {
+    height: 94%;
+    overflow: auto;
+    padding-bottom: 3rem; }
+    #app .notes-view .notes .note {
+      background: #37ecce;
+      border-radius: 4px;
+      height: 3rem;
+      color: #6d6d6d;
+      margin: 15px;
+      box-shadow: 7px 7px 20px 0px #04ab8f; }
+      #app .notes-view .notes .note .title {
+        font-size: 1.2rem;
+        margin-left: 10px; }
+      #app .notes-view .notes .note .time {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: .8rem; }
+      #app .notes-view .notes .note.totb1 {
+        animation-delay: 0s;
+        animation-duration: 2s;
+        animation-name: totb;
+        animation-iteration-count: infinite; }
+      #app .notes-view .notes .note.totb2 {
+        animation-delay: .7s;
+        animation-duration: 2s;
+        animation-name: totb;
+        animation-iteration-count: infinite; }
+      #app .notes-view .notes .note.totb0 {
+        animation-delay: .4s;
+        animation-duration: 2s;
+        animation-name: totb;
+        animation-iteration-count: infinite; }
+      #app .notes-view .notes .note.todelet {
+        background: #ec8737;
+        box-shadow: 7px 7px 20px 0px #ab042e; }
+  #app .notes-view .editor-title {
+    position: absolute;
+    bottom: 6px;
+    width: 100%;
+    padding: 10px;
+    justify-content: space-around;
+    background: rgba(240, 240, 240, 0.431);
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+    #app .notes-view .editor-title #notetitle {
+      outline: none;
+      width: calc(100% - 3rem);
+      height: 2rem;
+      border-radius: 4px; }
+    #app .notes-view .editor-title .add-note {
+      background: skyblue;
+      border-radius: 50%;
+      color: white;
+      height: 2rem;
+      width: 2rem;
+      box-shadow: 0px 1px 8px black; }
+  #app .setting-view {
+    transform: rotateY(180deg); }
+  #app .note-view {
+    left: 100%;
+    transition: .6s ease-in-out;
+    background: white; }
+    #app .note-view.move {
+      left: 0; }
+    #app .note-view .content {
+      padding: 15px;
+      height: calc(100% - 40px); }
+      #app .note-view .content #notedetail {
+        border: none;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        font-size: 20px;
+        outline: none;
+        resize: none;
+        box-shadow: 0px -5px 20px 0px skyblue; }

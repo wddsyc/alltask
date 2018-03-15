@@ -1,0 +1,200 @@
+$fenkai:10vw;
+$size:2*$fenkai;
+$logo:2.5vw;
+$theme:rgb(244, 72, 0);
+%headerfont {
+    color: rgb(86, 86, 86);
+    font-size: 1.7vw;
+    font-weight: lighter;
+}
+%flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+html,body {
+    height: 100vh;
+}
+body {
+    background: rgb(244, 244, 244);
+    box-sizing: border-box;
+    margin: 0;
+    background: beige;
+}
+.content {
+    
+    
+    .header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background: rgba(255, 255, 255, .8);
+        @extend %headerfont;
+        line-height: 2;
+        
+        .logo {
+            height: $logo;
+            width: $logo;
+        }
+        [type="radio"]{
+            display: none;
+        }
+        .home {
+            text-decoration: none;
+            font-size: 1.2vw;
+            background: $theme;
+            color: white;
+            padding: 0 1vw 0 1vw;
+            border-radius: 4px;
+        }
+        label {
+            position: relative;
+            cursor: pointer;
+            &::after {
+                display:block;
+                content: ' ';
+                height:0px;
+                width:0%;
+                background:$theme;
+                transition: 0.2s;
+                position: absolute;
+            }
+            &:hover::after {
+                height: 3px;
+                width: 100%;
+                background: $theme;
+            }
+        }
+    }
+    .scene {
+        perspective: 1200px;
+        @extend %flex;
+        .cube {
+            top:5vw;
+            transform-style: preserve-3d;
+            position: relative;
+            height: $size;
+            width: $size;
+            transition:all 0.85s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+            transform: rotateZ(15deg);
+            .cube-face {
+                position: absolute;
+                border-radius: 50%;
+                opacity: 0.9;
+                background: rgb(248, 248, 248);
+                border: 1px solid rgb(204, 204, 204);
+                box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.1), 0 0 50px rgba(0, 0, 0, 0.1);
+                img {
+                    height: $size;
+                    width: $size;
+                }
+            }
+
+           .cube-face-front {
+                transform: translateZ($fenkai)
+           }
+           .cube-face-back {
+                transform: translateZ(-$fenkai)
+           }
+           .cube-face-left {
+                transform: rotateY(90deg)translate3d(0,0,$fenkai)
+           }
+           .cube-face-right {
+                transform: rotateY(-90deg)translate3d(0,0,$fenkai)
+           }
+           .cube-face-top {
+                transform: rotateX(90deg)translate3d(0,0,$fenkai)
+           }
+           .cube-face-bottom {
+                transform: rotateX(-90deg)translate3d(0,0,$fenkai)
+           }
+        }
+        .cube {
+            &.qian {
+                transform: rotateY(0deg)
+            }
+            &.hou{
+                transform: rotateY(180deg)rotateZ(15deg)
+            }
+            &.zuo {
+                transform: rotateY(-90deg)rotateZ(-6deg)
+            }
+            &.you {
+                transform: rotateY(90deg)rotateZ(15deg)
+            }
+            &.shang {
+                transform: rotateX(-90deg)rotateZ(15deg)
+            }
+            &.xia {
+                transform: rotateX(90deg)rotateZ(15deg)
+            }
+        }
+    }
+    .top {
+        z-index: 99;
+        position: fixed;
+        left: 95vw;
+        bottom: 2vw;
+        opacity: .5;
+        cursor: pointer;
+        .fa {
+            @extend %headerfont;
+            color:$theme;
+        }
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .mesage {
+        position: relative;
+        top:10vw;
+        text-align: center;
+        @extend %headerfont;
+        background: rgb(255, 255, 255);
+        margin-bottom: 6vw;
+        h1,p {
+            font-size: 1.5vw;
+        }
+        h1 {
+            color:sandybrown;
+        }
+        .clean1,.feiji1,.feiji2,.saodi,.tv,.watch {
+            width: 100%;
+        }
+        .homeflex {
+            display: flex;
+            justify-content: space-around;
+            .w1,.w2,.w3,.w4 {
+                display: flex;
+                justify-content: flex-start;
+                flex-direction: column;
+                align-items: center; 
+            }
+            .yuan {
+                @extend %flex;
+                flex-direction: column;
+                height:6vw;
+                width: 6vw;
+                border-radius: 50%;
+                box-shadow: inset 10px 9px 8px rgba(255, 255, 255, 0.8);
+                p {
+                    margin: 0;
+                    font-weight: bold;
+                }
+            }
+            .yuan.one {
+                background: rgba(255, 122, 122, 0.81);
+            }
+            .yuan.two {
+                background: rgba(40, 26, 240, 0.81);
+            }
+            .yuan.three {
+                background: rgba(152, 24, 238, 0.81);
+            }
+            .yuan.four {
+                background: rgba(41, 197, 2, 0.81);
+            }
+        }
+    }
+}

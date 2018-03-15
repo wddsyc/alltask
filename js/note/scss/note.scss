@@ -1,0 +1,175 @@
+@import "animate";
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    text-decoration-line: none;
+    box-sizing: border-box;
+    font-size: 20px;
+    list-style: none;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+%header {
+    height: 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: skyblue;
+    font-size: 24px;
+    i {
+        margin: 0 10px;
+    }
+}
+
+%rotateview {
+    background: white;
+    top: 0;
+    backface-visibility: hidden;
+}
+
+%vertical-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app {
+    height: 100%;
+    position: relative;
+    perspective: 1000px;
+    overflow-x: hidden; //这里y轴也隐藏了就不能滚动了
+    .view {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        .header {
+            @extend %header;
+        }
+    }
+    .main-view {
+        height: 100%;
+        transform-style: preserve-3d;
+        &.toset {
+            animation-name: toset;
+            animation-duration: 1.5s;
+            animation-fill-mode: forwards;
+            box-shadow: 0 0 50px #ccc;
+        }
+        &.tonotes {
+            animation-name: tonotes;
+            animation-duration: 1.5s;
+            animation-fill-mode: forwards;
+            box-shadow: 0 0 50px #ccc;
+        }
+    }
+    .notes-view {
+        @extend %rotateview;
+        .notes {
+            height: 94%;
+            overflow: auto;
+            padding-bottom: 3rem;
+            .note {
+                background: rgb(55, 236, 206);
+                border-radius: 4px;
+                height: 3rem;
+                color: rgb(109, 109, 109);
+                margin: 15px;
+                box-shadow: 7px 7px 20px 0px rgb(4, 171, 143);
+                .title {
+                    font-size: 1.2rem;
+                    margin-left: 10px;
+                }
+                .time {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    font-size: .8rem;
+                }
+                &.totb1 {
+                    // animation: totb 3s ease 1 infinite;
+                    animation-delay: 0s;
+                    animation-duration: 2s;
+                    animation-name: totb;
+                    animation-iteration-count: infinite;
+                }
+                &.totb2 {
+                    // animation:  totb 3s ease 0 infinite;
+                    animation-delay: .7s;
+                    animation-duration: 2s;
+                    animation-name: totb;
+                    animation-iteration-count: infinite;
+                }
+                &.totb0 {
+                    // animation:  totb 3s ease 0 infinite;
+                    animation-delay: .4s;
+                    animation-duration: 2s;
+                    animation-name: totb;
+                    animation-iteration-count: infinite;
+                }
+                &.todelet {
+                    background: rgb(236, 135, 55);
+                    box-shadow: 7px 7px 20px 0px rgb(171, 4, 46);
+                }
+            }
+        }
+        .editor-title {
+            @extend %vertical-center;
+            position: absolute;
+            bottom: 6px;
+            width: 100%;
+            padding: 10px;
+            justify-content: space-around;
+            background: rgba(240, 240, 240, 0.431);
+            border-top: 1px solid rgba(0, 0, 0, .3);
+            border-bottom: 1px solid rgba(0, 0, 0, .3);
+            #notetitle {
+                outline: none;
+                width: calc(100% - 3rem);
+                height: 2rem;
+                border-radius: 4px;
+            }
+            .add-note {
+                @extend %vertical-center;
+                background: skyblue;
+                border-radius: 50%;
+                color: white;
+                height: 2rem;
+                width: 2rem;
+                box-shadow: 0px 1px 8px black;
+            }
+        }
+    }
+    .setting-view {
+        @extend %rotateview;
+        transform: rotateY(180deg)
+    }
+    .note-view {
+        left: 100%;
+        transition: .6s ease-in-out;
+        background: white;
+        &.move {
+            left: 0;
+        }
+        .content {
+            padding: 15px;
+            height: calc(100% - 40px);
+            #notedetail {
+                border: none;
+                width: 100%;
+                height: 100%;
+                padding: 10px;
+                border-radius: 4px;
+                font-size: 20px;
+                outline: none;
+                resize: none;
+                box-shadow: 0px -5px 20px 0px skyblue;
+            }
+        }
+    }
+}

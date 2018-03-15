@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/note.css">
+    <title>wddsyc便签</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="view main-view">
+            <div class="view notes-view">
+                <div class="header">
+                    <i class="fa fa-edit"></i>
+                    <span>便签</span>
+                    <i class="fa fa-gear"></i>
+                </div>
+                <div class="notes">
+                </div>
+                <div class="editor-title">
+                    <input type="text" id="notetitle" placeholder="TODO WHAT">
+                    <div class="add-note">
+                        <i class="fa fa-plus"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="view setting-view">
+                <div class="header">
+                    <i class="fa fa-thumbs-up"></i>
+                    <span>设置</span>
+                    <i class="fa fa-bars"></i>
+                </div>
+                <div class="setting"></div>
+            </div>
+        </div>
+        <div class="view note-view">
+            <div class="header">
+                <i class="fa fa-angle-left nav-btn-back"></i>
+                <span>详情</span>
+                <i></i>
+            </div>
+            <div class="content">
+                <textarea name="notedetail" id="notedetail"></textarea>
+            </div>
+        </div>
+    </div>
+    <script src="jq.js"></script>
+    <script src="note.js"></script>
+    <script>
+        // localStorage.clear()
+        let LSK = `notes`
+        let notes = JSON.parse(localStorage.getItem(LSK)) || [];
+        let index = null
+
+        $(`.fa-gear`).on(`click`, function () {
+            $(`.main-view`).removeClass(`tonotes`)
+            $(`.main-view`).addClass(`toset`)
+        })
+        $(`.fa-bars`).on(`click`, function () {
+            $(`.main-view`).removeClass(`toset`)
+            $(`.main-view`).addClass(`tonotes`)
+        })
+        $(`.fa-edit`).on(`click`, function () {
+            // $(`.note-view`).addClass(`move`)
+        })
+        $(`.fa-angle-left`).on(`click`, function () {
+            $(`.note-view`).removeClass(`move`)
+            back()
+        })
+        $(`.add-note`).on(`click`, function () {
+            if ($(`#notetitle`).val() == "") {
+                return
+            }
+            let timer = new Date()
+            timer = timer.toLocaleDateString()
+            let title = $(`#notetitle`).val()
+            $(`#notetitle`).val(``)
+            save(timer, title)
+            render()
+        })
+
+        $(`notes`)
+
+        function save(timer, title) {
+            notes.unshift({
+                time: timer,
+                title: title,
+                detail: ''
+            })
+            localStorage.setItem(LSK, JSON.stringify(notes))
+        }
+
+        function render() {
+            let html = notes.map((note, index) =>
+                `<div class="note" data-index="${index}">
+                        <p class="title">${note.title}</p>
+                        <ul class="time">
+                            <li class="time-begin">${note.time}</li>
+                            <li>→</li>
+                            <li class="time-end"><i class="fa fa-calendar"></i></li>
+                        </ul>
+                    </div>`
+            ).join(``)
+            $(`.notes`).html(html)
+            edNote()
+        }
+
+        function edNote() {
+            $(`.note`).on(`click`, move)
+        }
+
+        function move() {
+            index = $(this).index()
+            $(`#notedetail`).val(notes[index].detail)
+            $(`.note-view`).addClass(`move`)
+        }
+
+        function back() {
+            notes[index].detail = $(`#notedetail`).val()
+            console.log(notes[index].detail)
+            localStorage.setItem(LSK, JSON.stringify(notes))
+        }
+        render()
+        $(`.fa-edit`).on(`click`, function () {
+            $(`.note`).off(`click`)
+            $(`.note`).on(`click`, function () {
+                let n = ($(this).index() + 1) % 3
+                $(this).removeClass(`totb${n}`).addClass(`todelet`)
+                $(this).on(`click`, function () {
+                    $(this).addClass(`totb${n}`).removeClass(`todelet`)
+                })
+            })
+            $(`.note:nth-child(3n)`).addClass(`totb0`)
+            $(`.note:nth-child(3n-1)`).addClass(`totb2`)
+            $(`.note:nth-child(3n-2)`).addClass(`totb1`)
+            $(this).on(`click`, qxorde)
+        })
+
+        function qxorde() {
+            $(`.note`).off(`click`)
+            for (let index = 0; index < 3; index++) {
+                $(`.note`).removeClass(`totb${index}`)
+            }
+            $(`.note`).each(function(todel){
+                if($(this).attr(`class`).match(/todelet/)){
+                    $(this).remove()
+                    notes
+                }
+            })
+            $(this).off(`click`, qxorde)
+        }
+    </script>
+</body>
+
+</html>

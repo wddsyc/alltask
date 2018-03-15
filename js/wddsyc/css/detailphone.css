@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.section {
+    /* min-width: 1226px; */
+    height: 924px;
+    overflow: hidden;
+    _zoom: 1;
+    background-color: #000;
+    background-size: cover;
+}
+
+.section1 {
+    background-image: url("../img/miphone/bg1.jpg");
+}
+
+.section1 .container {
+    margin-top: 18%;
+    color: #FFF;
+}
+
+.section1 .tit {
+    line-height: 70px;
+    font-size: 44px;
+}
+
+.section1 .desc {
+    margin-top: 15px;
+    line-height: 30px;
+    font-size: 26px;
+    letter-spacing: 2px;
+}
+
+.section1 .info {
+    margin-top: 60px;
+    font-size: 18px;
+    color: #93a1aa;
+    margin-bottom: 20px;
+}
+
+.section1 .price {
+    font-size: 18px;
+    margin-left: -10px;
+}
+
+.section1 .price span {
+    width: 160px;
+    display: inline-block;
+}
+
+.section1 .price em {
+    color: red;
+    font-style: normal;
+    display: inline-block;
+    border: 1px solid red;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 0 5px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.section2 {
+    display: flex;
+    color: #fff;
+}
+
+.section2 .half {
+    width: 50%;
+    height: 100%;
+    background-size: cover;
+}
+
+.half-left {
+    background-image: url("../img/miphone/note2-3.jpg");
+}
+
+.half-right {
+    background-image: url("../img/miphone/note2-2.jpg");
+}
+
+.section2 .container1 {
+    position: relative;
+    width: 540px;
+    margin: 0 auto;
+    z-index: 4;
+    padding-top: 10%;
+    text-align: center;
+}
+
+.section2 .desc {
+    line-height: 30px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.section3 {
+    background-image: url("../img/miphone/note2-1.jpg");
+}
+
+.section3 .container {
+    margin-top: 18%;
+    color: #fff;
+    text-align: center;
+}
+
+.section3 .container .tit {
+    font-size: 38px;
+    line-height: 50px;
+}
+
+.section3 .container .desc {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 26px;
+}
+.section4{
+    background: url("../img/miphone/note2-6.png") no-repeat;
+    background-size: 100% 100%;
+}
+footer {
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    background: #000;
+    text-align: center;
+}

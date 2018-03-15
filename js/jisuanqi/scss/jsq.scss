@@ -1,0 +1,62 @@
+* {
+   margin: 0; 
+   padding: 0;
+   font-size: 20px;
+   box-sizing: border-box;
+}
+html,body {
+    height: 100vh;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calculator {
+    width: 24rem;
+    background: skyblue;
+    border-radius: .5rem;
+    padding: .2rem;
+    .head {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .result {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;  
+        width: 90%;
+        height: 10rem;
+        background: #1297A8;
+        border-radius: 0.5rem;
+        font-size: 3rem;
+        padding: 2% 2%;
+        overflow: auto;
+    .xs {
+        
+    }
+    }
+    .jianPan {
+        display: flex;
+        flex-flow: wrap;
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            width: 25%;
+            line-height: 2.5;
+            border: snow solid 1px;
+            cursor: pointer;
+        }
+        .number0,.dot{
+            flex: 1;
+        }
+        .equal{
+            flex: 2;
+        }
+    }
+
+   
+
+}

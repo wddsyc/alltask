@@ -1,0 +1,147 @@
+.content .header, .content .top .fa, .content .mesage {
+  color: #565656;
+  font-size: 1.7vw;
+  font-weight: lighter; }
+
+.content .scene, .content .mesage .homeflex .yuan {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+html, body {
+  height: 100vh; }
+
+body {
+  background: #f4f4f4;
+  box-sizing: border-box;
+  margin: 0;
+  background: beige; }
+
+.content .header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+  line-height: 2; }
+  .content .header .logo {
+    height: 2.5vw;
+    width: 2.5vw; }
+  .content .header [type="radio"] {
+    display: none; }
+  .content .header .home {
+    text-decoration: none;
+    font-size: 1.2vw;
+    background: #f44800;
+    color: white;
+    padding: 0 1vw 0 1vw;
+    border-radius: 4px; }
+  .content .header label {
+    position: relative;
+    cursor: pointer; }
+    .content .header label::after {
+      display: block;
+      content: ' ';
+      height: 0px;
+      width: 0%;
+      background: #f44800;
+      transition: 0.2s;
+      position: absolute; }
+    .content .header label:hover::after {
+      height: 3px;
+      width: 100%;
+      background: #f44800; }
+
+.content .scene {
+  perspective: 1200px; }
+  .content .scene .cube {
+    top: 5vw;
+    transform-style: preserve-3d;
+    position: relative;
+    height: 20vw;
+    width: 20vw;
+    transition: all 0.85s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: rotateZ(15deg); }
+    .content .scene .cube .cube-face {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.9;
+      background: #f8f8f8;
+      border: 1px solid #cccccc;
+      box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.1), 0 0 50px rgba(0, 0, 0, 0.1); }
+      .content .scene .cube .cube-face img {
+        height: 20vw;
+        width: 20vw; }
+    .content .scene .cube .cube-face-front {
+      transform: translateZ(10vw); }
+    .content .scene .cube .cube-face-back {
+      transform: translateZ(-10vw); }
+    .content .scene .cube .cube-face-left {
+      transform: rotateY(90deg) translate3d(0, 0, 10vw); }
+    .content .scene .cube .cube-face-right {
+      transform: rotateY(-90deg) translate3d(0, 0, 10vw); }
+    .content .scene .cube .cube-face-top {
+      transform: rotateX(90deg) translate3d(0, 0, 10vw); }
+    .content .scene .cube .cube-face-bottom {
+      transform: rotateX(-90deg) translate3d(0, 0, 10vw); }
+  .content .scene .cube.qian {
+    transform: rotateY(0deg); }
+  .content .scene .cube.hou {
+    transform: rotateY(180deg) rotateZ(15deg); }
+  .content .scene .cube.zuo {
+    transform: rotateY(-90deg) rotateZ(-6deg); }
+  .content .scene .cube.you {
+    transform: rotateY(90deg) rotateZ(15deg); }
+  .content .scene .cube.shang {
+    transform: rotateX(-90deg) rotateZ(15deg); }
+  .content .scene .cube.xia {
+    transform: rotateX(90deg) rotateZ(15deg); }
+
+.content .top {
+  z-index: 99;
+  position: fixed;
+  left: 95vw;
+  bottom: 2vw;
+  opacity: .5;
+  cursor: pointer; }
+  .content .top .fa {
+    color: #f44800; }
+  .content .top:hover {
+    opacity: 1; }
+
+.content .mesage {
+  position: relative;
+  top: 10vw;
+  text-align: center;
+  background: white;
+  margin-bottom: 6vw; }
+  .content .mesage h1, .content .mesage p {
+    font-size: 1.5vw; }
+  .content .mesage h1 {
+    color: sandybrown; }
+  .content .mesage .clean1, .content .mesage .feiji1, .content .mesage .feiji2, .content .mesage .saodi, .content .mesage .tv, .content .mesage .watch {
+    width: 100%; }
+  .content .mesage .homeflex {
+    display: flex;
+    justify-content: space-around; }
+    .content .mesage .homeflex .w1, .content .mesage .homeflex .w2, .content .mesage .homeflex .w3, .content .mesage .homeflex .w4 {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: center; }
+    .content .mesage .homeflex .yuan {
+      flex-direction: column;
+      height: 6vw;
+      width: 6vw;
+      border-radius: 50%;
+      box-shadow: inset 10px 9px 8px rgba(255, 255, 255, 0.8); }
+      .content .mesage .homeflex .yuan p {
+        margin: 0;
+        font-weight: bold; }
+    .content .mesage .homeflex .yuan.one {
+      background: rgba(255, 122, 122, 0.81); }
+    .content .mesage .homeflex .yuan.two {
+      background: rgba(40, 26, 240, 0.81); }
+    .content .mesage .homeflex .yuan.three {
+      background: rgba(152, 24, 238, 0.81); }
+    .content .mesage .homeflex .yuan.four {
+      background: rgba(41, 197, 2, 0.81); }
